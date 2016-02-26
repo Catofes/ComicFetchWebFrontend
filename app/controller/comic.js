@@ -19,13 +19,13 @@ angular.module('ComicFetch_Web')
                     for (i = 0; i < chapters.length; i++) {
                         chapter = chapters[i];
                         if (chapters_dict[chapter['next']] != null)
-                            chapters_dict[chapter['next']]['before'] = chapter;
+                            chapters_dict[chapter['next']]['before'] = chapter.chapter;
                     }
                     while (chapter_end['before'] != null)
-                        chapter_end = chapter_end['before'];
+                        chapter_end = chapters_dict[chapter_end['before']];
                     while (chapter_end['next'] != null) {
                         result.push(chapter_end);
-                        chapter_end = chapter_end['next'];
+                        chapter_end = chapters_dict[chapter_end['next']];
                     }
                     return result;
                 };
