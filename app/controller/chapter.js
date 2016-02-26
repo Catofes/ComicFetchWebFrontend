@@ -15,12 +15,13 @@ angular.module('ComicFetch_Web')
                             break;
                         }
                     }
-                    for (i = 1; i < $scope.chapter.info.pic_num + 1; i++) {
+                    for (i = 0; i < $scope.chapter.info.pic_num; i++) {
                         $scope.chapter.pic[i] = {
-                            'i': i,
-                            'url': "/picture/" + $scope.comic.comic.name + "/" + $scope.chapter.name + "/" + i + ".jpg"
+                            'i': i + 1,
+                            'url': "/picture/" + $scope.comic.comic.name + "/" + $scope.chapter.name + "/" + (i + 1) + ".jpg"
                         }
                     }
+                    console.log($scope.chapter)
                 };
                 if (StoreService.Comic[$routeParams.id] == null) {
                     return APIService.getComic({'id': $routeParams['id']}).$promise
