@@ -4,8 +4,8 @@
     <div ng-repeat="pic in chapter.pic" class="pic_show">
         <img src={{pic.url}} alt={{pic.i}}/>
     </div>
-    <div class="alert alert-success" ng-show="chapter.if_next"
-         ng-href="{{ '#/comic/' + comic.comic.id +'/' + chapter.next }}">Next Chapter
+    <div class="alert alert-success" ng-show="chapter.if_next">
+        <a ng-href="{{ '#/comic/' + comic.comic.id +'/' + chapter.next }}">Next Chapter</a>
     </div>
     <div class="alert alert-danger" ng-show="!chapter.if_next">Finished!</div>
 </div>
