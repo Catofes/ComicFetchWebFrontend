@@ -15,7 +15,7 @@ angular.module('ComicFetch_Web')
                             break;
                         }
                     }
-                    $scope.chapter.next = chapter.info.next;
+                    $scope.chapter.next = $scope.chapter.info['next'];
                     for (i = 0; i < $scope.chapter.info.pic_num; i++) {
                         $scope.chapter.pic[i] = {
                             'i': i + 1,
