@@ -6,8 +6,8 @@ angular.module('ComicFetch_Web', [
     'ngResource'
 ]).config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/login', {
-        templateUrl: 'viewer/login.html',
-        controller: 'LoginCtrl'
+        templateUrl: 'viewer/watch.html',
+        controller: 'WatchCtrl'
     }).when('/', {
         templateUrl: 'viewer/list.html',
         controller: 'ListCtrl'
