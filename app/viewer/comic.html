@@ -9,7 +9,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="chapter in comic.pic | orderBy: '[update_time, chapter]'">
+        <tr ng-repeat="chapter in comic.pic">
             <th><a ng-href="{{ '#/comic/' + comic.comic.id +'/' + chapter.chapter }}">
                 {{chapter.chapter}}</a></th>
             <th>{{chapter.pic_num}}</th>
