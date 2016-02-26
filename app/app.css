@@ -1,0 +1,22 @@
+#m_container {
+    margin-top: 50px;
+}
+
+#m_container .input-group {
+    height: auto;
+    margin-top: 20px;
+}
+
+#LoginDiv {
+    margin-top: 300px;
+    width: 50%;
+}
+
+#LoginDiv button {
+    margin-top: 20px;
+}
+
+#LoginDiv input {
+    margin-top: 20px;
+}
+

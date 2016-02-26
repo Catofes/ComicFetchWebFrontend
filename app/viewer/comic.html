@@ -1,0 +1,20 @@
+<div class="container" id="m_container">
+    <h1> {{comic.comic.name}} </h1>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Chapter</th>
+            <th>Picture Number</th>
+            <th>mobi</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="chapter in comic.pic | orderBy: '[update_time, chapter]'">
+            <th><a ng-href="{{ '#/comic/' + comic.comic.id +'/' + chapter.chapter }}">
+                {{chapter.chapter}}</a></th>
+            <th>{{chapter.pic_num}}</th>
+            <th><a ng-href="{{'/mobi/' + comic.comic.name + '/'+ chapter.chapter +'.mobi'}}">MOBI</a></th>
+        </tr>
+        </tbody>
+    </table>
+</div>

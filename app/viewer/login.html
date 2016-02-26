@@ -1,0 +1,11 @@
+<div class="container" id="LoginDiv">
+    <form class="form-signin" name="LoginForm" ng-submit="login()">
+        <h2 class="form-signin-heading">登录</h2>
+        <div class="alert alert-danger" ng-show="login_failed">{{error_message}}</div>
+        <input type="text" id=username" name="username" class="form-control" placeholder="Username" required
+               ng-model="user.username">
+        <input type="password" id="passwd" name="passwd" class="form-control" placeholder="Password" required
+               ng-model="user.password">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+<div class="container" id="m_container">
+    <div class="container">
+        <div class="col-md-8">
+            <h1> Comics List </h1></div>
+        <div class="col-md-4 input-group">
+            <span class="input-group-addon" id="basic-addon1">Filter</span>
+            <input class="form-control" ng-model="searchText">
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Update Time</th>
+            <th>mobi</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="comic in comics  | filter:searchText | orderBy:'name'">
+            <th><a ng-href="{{ '#/comic/' + comic.id }}">
+                {{comic.name}}</a></th>
+            <th>{{comic.update_time}}</th>
+            <th><a ng-href="{{'/mobi/' + comic.name + '.mobi'}}">MOBI</a></th>
+        </tr>
+        </tbody>
+    </table>
+</div>
