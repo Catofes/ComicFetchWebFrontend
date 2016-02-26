@@ -9,9 +9,16 @@ angular.module('ComicFetch_Web')
                     $scope.chapter = {};
                     $scope.chapter.pic = [];
                     $scope.chapter.name = $routeParams.chapter;
+                    $scope.chapter.if_next = true;
                     for (i = 0; i < $scope.comic.pic.length; i++) {
                         if ($scope.chapter.name == $scope.comic.pic[i].chapter) {
                             $scope.chapter.info = $scope.comic.pic[i];
+                            if (i + 1 < $scope.comic.pic.length)
+                                $scope.chapter.next = $scope.comic.pic[i + 1].chapter;
+                            else {
+                                $scope.chapter.next = null;
+                                $scope.chapter.if_next = false;
+                            }
                             break;
                         }
                     }
