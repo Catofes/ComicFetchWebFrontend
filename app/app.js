@@ -5,7 +5,7 @@ angular.module('ComicFetch_Web', [
     'ngRoute',
     'ngResource'
 ]).config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/login', {
+    $routeProvider.when('/watch', {
         templateUrl: 'viewer/watch.html',
         controller: 'WatchCtrl'
     }).when('/', {
