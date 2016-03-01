@@ -23,7 +23,10 @@ angular.module('ComicFetch_Web')
                     }
                     while (chapter_end['before'] != null)
                         chapter_end = chapters_dict[chapter_end['before']];
+                    order = 0;
                     while (chapter_end != null) {
+                        chapter_end["order"] = ++order;
+                        chapter_end["mobi_size"] = (chapter_end["mobi_size"] / 1024. / 1024.).toFixed(2);
                         result.push(chapter_end);
                         chapter_end = chapters_dict[chapter_end['next']];
                     }
