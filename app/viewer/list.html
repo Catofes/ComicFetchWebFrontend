@@ -20,9 +20,9 @@
         <tr ng-repeat="comic in comics  | filter:searchText | orderBy:'name'">
             <th><a ng-href="{{ '#/comic/' + comic.id }}">
                 {{comic.name}}</a></th>
-            <th>{{comic.update_time}}</th>
+            <th>{{comic.update_time}}</th>bili
             <th><a ng-href="{{comic.mobi?'/mobi/' + comic.name + '.mobi':undefined}}">MOBI</a></th>
-            <th>{{comic.mobi_size}}</th>
+            <th>{{comic.mobi_size}}MB</th>
         </tr>
         </tbody>
     </table>
