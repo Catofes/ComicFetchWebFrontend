@@ -16,7 +16,7 @@ angular.module('ComicFetch_Web')
                         }
                     }
                     $scope.chapter.next = $scope.chapter.info['next'];
-                    for (i = 0; i < $scope.chapter.info.pic_num; i++) {
+                    for (i = 0; i < $scope.chapter.info.pic; i++) {
                         $scope.chapter.pic[i] = {
                             'i': i + 1,
                             'url': "/picture/" + $scope.comic.comic.name + "/" + $scope.chapter.name + "/" + (i + 1) + ".jpg"

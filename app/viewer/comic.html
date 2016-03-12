@@ -15,7 +15,8 @@
                 {{chapter.chapter}}</a></th>
             <th>{{chapter.pic_num}}</th>
             <th>
-                <a ng-href="{{chapter.mobi?'/mobi/' + comic.comic.name + '/'+ chapter.chapter +'.mobi':undefined}}">MOBI</a>
+                <a ng-href="{{chapter.mobi?'/mobi/' + comic.comic.name + '/' + comic.comic.name + '_' + chapter.chapter
+                +'.mobi':undefined}}">MOBI</a>
             </th>
             <th>{{chapter.mobi_size+"MB"}}</th>
         </tr>
