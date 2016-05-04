@@ -46,7 +46,7 @@ angular.module('ComicFetch_Web')
                     while (chapters_end != null) {
                         chapter = chapters_dict[chapters_end];
                         chapter["order"] = ++order;
-                        chapter["mobi_size"] = (chapter_end["mobi_size"] / 1024. / 1024.).toFixed(2);
+                        chapter["mobi_size"] = (chapter["mobi_size"] / 1024. / 1024.).toFixed(2);
                         result.push(chapter);
                         chapters_end = chapter.next;
                         if (chapters_end != null)
