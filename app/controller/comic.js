@@ -7,6 +7,7 @@ angular.module('ComicFetch_Web')
         function ($scope, APIService, StoreService, $routeParams) {
             var refreshComic = function () {
                 var sortComit = function (chapters) {
+                    var result=[];
                     var chapters_dict = {};
                     var chapters_end;
                     var chapters_start;
