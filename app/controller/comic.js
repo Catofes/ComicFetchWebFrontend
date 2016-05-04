@@ -42,7 +42,7 @@ angular.module('ComicFetch_Web')
                     }
                     chapters_end = chapters_start;
                     var order = 0;
-                    chapters[chapters_end].before = null;
+                    chapters_dict[chapters_end].before = null;
                     while (chapters_end != null) {
                         chapter = chapters_dict[chapters_end];
                         chapter["order"] = ++order;
