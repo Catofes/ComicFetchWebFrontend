@@ -7,28 +7,50 @@ angular.module('ComicFetch_Web')
         function ($scope, APIService, StoreService, $routeParams) {
             var refreshComic = function () {
                 var sortComit = function (chapters) {
-                    chapters_dict = {};
-                    chapter_end = null;
-                    result = [];
+                    var chapters_dict = {};
+                    var chapters_end;
+                    var chapters_start;
                     for (i = 0; i < chapters.length; i++) {
                         chapter = chapters[i];
-                        if (chapter['next'] == null)
-                            chapter_end = chapter;
-                        chapters_dict[chapter['chapter']] = chapter
+                        chapter.before = [];
+                        if (chapter.next == null)
+                            chapters_end = chapter.chapter;
+                        chapters_dict[chapter.chapter] = chapter;
                     }
                     for (i = 0; i < chapters.length; i++) {
                         chapter = chapters[i];
-                        if (chapters_dict[chapter['next']] != null)
-                            chapters_dict[chapter['next']]['before'] = chapter.chapter;
+                        if (chapter.next != null)
+                            chapters_dict[chapter.next].before.append(chapter.chapter);
                     }
-                    while (chapter_end['before'] != null)
-                        chapter_end = chapters_dict[chapter_end['before']];
-                    order = 0;
-                    while (chapter_end != null) {
-                        chapter_end["order"] = ++order;
-                        chapter_end["mobi_size"] = (chapter_end["mobi_size"] / 1024. / 1024.).toFixed(2);
-                        result.push(chapter_end);
-                        chapter_end = chapters_dict[chapter_end['next']];
+                    while (true) {
+                        chapter = chapters[chapters_end];
+                        if (chapter.before.length == 0) {
+                            chapters_start = chapter.chapter;
+                            break;
+                        }
+                        else if (chapter.before.length == 1) {
+                            chapters_end = chapter.before[0];
+                        }
+                        else {
+                            for (j = 0; j < chapter.before.length; j++) {
+                                if (chapters_dict[chapter.before[j]].before.length > 0) {
+                                    chapters_end = chapter.before[j];
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    chapters_end = chapters_start;
+                    var order = 0;
+                    chapters[chapters_end].before = null;
+                    while (chapters_end != null) {
+                        chapter = chapters[chapters_end];
+                        chapter["order"] = ++order;
+                        chapter["mobi_size"] = (chapter_end["mobi_size"] / 1024. / 1024.).toFixed(2);
+                        result.push(chapter)
+                        chapters_end = chapter.next;
+                        if (chapters_end != null)
+                            chapters[chapters_end].before = chapter.chapter;
                     }
                     return result;
                 };
@@ -43,5 +65,6 @@ angular.module('ComicFetch_Web')
 
             };
             $scope.listPromise = refreshComic();
+
         }
     );

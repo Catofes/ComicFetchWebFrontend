@@ -4,7 +4,7 @@
             <h1> Comics List </h1></div>
         <div class="col-md-4 input-group">
             <span class="input-group-addon" id="basic-addon1">Filter</span>
-            <input class="form-control" ng-model="searchText">
+            <input class="form-control" ng-model="searchText"/>
         </div>
     </div>
     <table class="table table-hover">
@@ -12,8 +12,6 @@
         <tr>
             <th>Name</th>
             <th>Sync Time</th>
-            <th>MOBI</th>
-            <th>Size</th>
         </tr>
         </thead>
         <tbody>
@@ -21,8 +19,6 @@
             <th><a ng-href="{{ '#/comic/' + comic.id }}">
                 {{comic.name}}</a></th>
             <th>{{comic.update_time}}</th>
-            <th><a ng-href="{{comic.mobi?'/mobi/' + comic.name + '.mobi':undefined}}">MOBI</a></th>
-            <th>{{comic.mobi_size+"MB"}}</th>
         </tr>
         </tbody>
     </table>

@@ -1,5 +1,12 @@
 <div class="container" id="m_container">
-    <h1> {{comic.comic.name}} </h1>
+    <div class="container">
+        <div class="col-md-8">
+            <h1> {{comic.comic.name}} </h1></div>
+        <div class="col-md-4 input-group">
+            <span class="input-group-addon" id="basic-addon1">Filter</span>
+            <input class="form-control" type="password" ng-model="password"/>
+        </div>
+    </div>
     <table class="table table-hover">
         <thead>
         <tr>
